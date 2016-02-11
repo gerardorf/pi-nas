@@ -1,1 +1,0 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/gerardorf/workspaces/gerardorf/pi-nas","disabled":false,"owner":"vagrant","group":"vagrant"}}}
