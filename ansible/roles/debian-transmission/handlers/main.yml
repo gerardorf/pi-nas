@@ -1,0 +1,7 @@
+---
+- name: restart transmission-daemon
+  become: yes
+  service: 
+    name=transmission-daemon
+    enabled=yes
+    state=restarted

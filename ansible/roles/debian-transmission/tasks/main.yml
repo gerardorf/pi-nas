@@ -1,0 +1,7 @@
+---
+- name: install transmission-daemon
+  become: true
+  apt:
+    name=transmission-daemon
+    state=installed
+  notify: restart transmission-daemon

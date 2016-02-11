@@ -1,0 +1,19 @@
+---
+- name: install apt-key
+  become: yes
+  apt_key: 
+    state=present
+    url=https://download.owncloud.org/download/repositories/stable/Debian_8.0/Release.key
+
+- name: register repository
+  become: yes
+  apt_repository: 
+    repo='deb http://download.owncloud.org/download/repositories/stable/Debian_8.0/ /'
+    state=present
+
+- name: install owncloud 
+  become: yes
+  apt:
+    name=owncloud 
+    state=present 
+    update_cache=true

@@ -1,0 +1,4 @@
+---
+ansible_connection: smart
+ansible_user: pi
+ansible_ssh_pass: raspberry

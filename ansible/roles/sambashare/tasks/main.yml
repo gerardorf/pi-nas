@@ -1,0 +1,12 @@
+---
+- name: install samba
+  become: true
+  apt:
+    name={{ item }}
+    state=installed
+  with_items:
+    - samba
+    - samba-common
+    - libcups2
+    - cups
+  notify: restart samba

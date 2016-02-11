@@ -1,0 +1,6 @@
+---
+- hosts: pinas
+  roles:
+    - sambashare
+    - debian-transmission
+    - owncloud
