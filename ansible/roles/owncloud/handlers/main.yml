@@ -1,7 +1,0 @@
----
-- name: restart samba
-  become: yes
-  service: 
-    name=samba
-    enabled=yes
-    state=restarted
