@@ -13,13 +13,21 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "debian/jessie64"
-  config.vm.define "pinas"
-  config.vm.hostname = "pinas"
+  config.vm.define "pinas.local"
+  config.vm.hostname = "pinas.local"
 
 
   config.ssh.username = "vagrant"
   config.ssh.password = "vagrant"
   config.ssh.insert_key = true
+
+  #
+  # vagrant-hostmanager configuration
+  #
+  # config.hostmanager.enabled = true
+  # config.hostmanager.manage_host = true
+  # config.hostmanager.ignore_private_ip = true
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -38,6 +46,7 @@ Vagrant.configure(2) do |config|
   # Bridged networks make the machine appear as another physical device on
   # your network.
   config.vm.network "public_network", ip:"192.168.1.105", bridge: "wlan1"
+  # config.vm.network "public_network", ip:"192.168.1.105", bridge: "wlan1"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is

@@ -9,4 +9,49 @@
     - samba-common
     - libcups2
     - cups
+
+- name: create samba group
+  group:
+    name={{ samba_group_name }}
+    state=present
+  become: true
+
+- name: create linux users
+  user:
+    name={{ item.name }}
+    password={{ item.password }}
+    groups={{ samba_group_name }} 
+    append=yes
+  become: true
+  with_items:
+    samba_users
+
+- name: create samba users
+  shell: (echo {{ item.password }}; echo {{ item.password }}) | smbpasswd -s -a {{ item.name }}
+  become: true
+  with_items:
+    samba_users
+
+- name: create samba public directory
+  file:
+    path={{ public_share_path }}
+    group={{ samba_group_name }}
+    state=directory
+    mode=0777
+  become: true
+
+- name: create samba private directory
+  file:
+    path={{ private_share_path }}
+    group={{ samba_group_name }}
+    state=directory
+    mode=0775
+  become: true
+
+- name: configure samba
+  template:
+    src=smb.conf.j2
+    dest=/etc/samba/smb.conf
+    backup=yes
+  become: true
   notify: restart samba

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'universal access' do
+describe 'web access' do
 	describe package('owncloud') do
 		it { should be_installed }
 	end

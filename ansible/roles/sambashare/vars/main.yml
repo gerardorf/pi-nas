@@ -1,0 +1,12 @@
+---
+workgroup: WORKGROUP
+
+public_share_name: public-music
+public_share_path: /home/vagrant/samba-shared/music
+
+private_share_name: private-films
+private_share_path: /home/vagrant/samba-shared/films
+samba_group_name: samba
+
+samba_users:
+  - {name: 'gerardorf', password: 'nose'}
